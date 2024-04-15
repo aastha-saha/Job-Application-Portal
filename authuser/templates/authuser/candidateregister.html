@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal Registration</title>
+  <link rel="stylesheet" href="{% static 'css/style_cd_register.css' %}">
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-card">
+      <div class="logo">
+        <!-- Replace with your logo -->
+        <!-- <img src="logo.png" alt="Job Portal Logo"> -->
+        <div class="left">Job Finder</div>
+        <p>Your Path to Success</p>
+      </div>
+      <form class="register-form" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username" class="input-field" required>
+        <input type="email" placeholder="Email" name="email" class="input-field" required>
+        <input type="password" placeholder="Password" name="password" class="input-field" required>
+        <input type="password" placeholder="Confirm Password" name="cpassword" class="input-field" required>
+        <button type="submit" class="register-button" >Register</button>
+      </form>
+      <div class="footer-links">
+        <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

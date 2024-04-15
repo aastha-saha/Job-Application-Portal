@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Poster Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style_candi.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        {% include 'hr/navbar.html' %}
+        <div class="content">
+            <h2>Candidates Details</h2>
+            {% if jobapplys %}
+            <table class="candidates-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Passing Year</th>
+                        <th>Years of Experience</th>
+                        <th>Resume</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candi in jobapplys %}
+                    <tr>
+                        <td>{{candi.user.username}}</td>
+                        <td>{{candi.user.email}}</td>
+                        <td>{{candi.passingYear}}</td>
+                        <td>{{candi.yearOfExperience}}</td>
+                        <td><a href="{{candi.resume.url}}" class="resume-download">Download Resume</a></td>
+                        <td>Pending</td>
+                        <td>
+                            <form action="{% url 'acceptapplication' %}" method="post">
+                                {% csrf_token %}
+                                <input type="number" name="candidateid" value="{{candi.id}}" hidden>
+                                <input type="number" name="jobpostid" value="{{jobpost.id}}" hidden>
+                                <button class="accept-button" type="submit">Accept</button>
+                            </form>
+                            <hr>
+                            <form action="{% url 'rejectapplication' %}" method="post">
+                                {% csrf_token %}
+                                <input type="number" name="candidateid" value="{{candi.id}}" hidden>
+                                <input type="number" name="jobpostid" value="{{jobpost.id}}" hidden>
+                                <button class="reject-button">Reject</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more rows for other candidates -->
+                </tbody>
+            </table>
+            {% else %}
+            <h2>No Application received</h2>
+            {% endif %}
+
+            <h2>Selected Candidates Details</h2>
+            {% if jobapplys %}
+            <table class="candidates-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Passing Year</th>
+                        <th>Years of Experience</th>
+                        <th>Resume</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candi in selectedCandidate %}
+                    <tr>
+                        <td>{{candi.candidate.user.username}}</td>
+                        <td>{{candi.candidate.user.email}}</td>
+                        <td>{{candi.candidate.passingYear}}</td>
+                        <td>{{candi.candidate.yearOfExperience}}</td>
+                        <td><a href="{{candi.candidate.resume.url}}" class="resume-download">Download Resume</a></td>
+                        <td>{{candi.candidate.status}}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more rows for other candidates -->
+                </tbody>
+            </table>
+            {% else %}
+            <h2>No Application received</h2>
+            {% endif %}
+
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

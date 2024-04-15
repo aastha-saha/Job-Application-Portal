@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Poster Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style_joblist.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        {% include 'candidate/navbar.html' %}
+        <div class="content">
+            <h2>Jobs Details</h2>
+            {% if joblist %}
+            <table class="candidates-table">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Company Role</th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candi in joblist %}
+                    <tr>
+                        <td>{{candi.job.job.compnayName}}</td>
+                        <td>{{candi.job.job.title}}</td>
+                        <td>{{candi.job.status}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    <!-- Add more rows for other candidates -->
+                </tbody>
+            </table>
+            {% else %}
+            <h2>No Application received</h2>
+            {% endif %}
+
+
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

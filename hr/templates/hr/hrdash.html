@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Poster Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/style_hrdash.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    {% include "hr/navbar.html" %}
+
+    <div class="content">
+      <h2>Welcome to Your Dashboard</h2>
+
+
+
+      <div class="job-cards">
+
+        {% for job in jobposts %}
+        <div class="job-card">
+          <h3>{{job.title}}</h3>
+          <p>Last Date: {{job.lastDateToApply}}</p>
+          <div class="apply-count">
+            <i class="fas fa-users"></i>
+            <span>{{job.applyCount}} Candidates Applied</span>
+          </div>
+          <button class="details-button"><a href="{% url 'candidatedetails' job.id %}" style="text-decoration: none; color: inherit;">See Details</a></button>
+        </div>
+        {% endfor %}
+
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>

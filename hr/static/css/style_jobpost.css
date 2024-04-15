@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    background-color: rgb(0, 0, 33);
+    color: white;
+    font-family: 'poppins', sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 4rem;
+    width: 50rem;
+
+}
+
+.sidebar {
+    background-color: #34495e;
+    color: white;
+    width: 220px;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.job-listings {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100% - 220px);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ... Existing job card styles ... */
+
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: rgb(142, 142, 229);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.upload-form {
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #cce7d0;
+    padding: 20px;
+}
+
+.upload-form h2 {
+    margin-bottom: 20px;
+}
+
+.upload-form form {
+    display: grid;
+    grid-gap: 20px;
+    padding: 10px;
+}
+
+.upload-form label {
+    font-weight: bold;
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="number"],
+.upload-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.upload-form .salary-range {
+    display: flex;
+    align-items: center;
+}
+
+.upload-form .salary-range span {
+    margin: 0 10px;
+}
+
+.upload-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(142, 142, 229);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.upload-form button:hover {
+    background-color: rgb(91, 91, 204);
+}

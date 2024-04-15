@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css>
+    <link rel="stylesheet" href="{% static 'css/hr_home.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/style_dash.css' %}"> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Job Finder</div>
+            <div class="right">
+                <ul>
+                    <li><a href="{% url 'hrhome' %}">Home</a></li>
+                    <li><a href="{% url 'postjob' %}">Post Jobs</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="/">Contact</a></li>
+                    <li><a href="{% url 'hrdash' %}"><button class="btn-login">Dashboard</button></a></li>
+                    <li> <a href="{% url 'logout' %}"><button class="btn-login">Logout</button></a></li>
+                    <!-- <li><a href="admin/"><button class="btn-login">Admin</button></a></li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstsection">
+            <div class="leftsection"><span id="element1">Welcome Home HR!</span>
+            <!-- <br> -->
+            <span id="element">Hire The Best Talent </span>
+            </div>
+            <div class="rightsection"><img src="{% static 'img/hr.jpg' %}"></div>
+        </section>
+        <section id="product1" class="section-p1 expjob" >
+            <li><a href="{% url 'postjob' %}"><button class="btn-exp">Post Jobs</button></a></li>
+        </section>
+        <section id="product1" class="section-p1">
+            <h2>Browse Top Categories</h2>
+            <p>Take your first step towards your dream!!</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="{% static 'img/img1.jpg' %}" alt="">
+                    <div class="des">
+                    <span>Design & Development</span>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'img/img2.jpg' %}" alt="">
+                    <div class="des">
+                    <span>Content Writer</span>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'img/img3.jpg' %}" alt="">
+                    <div class="des">
+                    <span>Sales & Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="product2" class="section-p2">
+            <h2>Hiring Process</h2>
+            <p>How it works</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="{% static 'img/img4.jpg' %}" alt="">
+                    <div class="des">
+                    <span>1.Register</span>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'img/img5.jpg' %}" alt="">
+                    <div class="des">
+                    <span>2.Post A Job</span>
+                    </div>
+                </div>
+                <div class="pro">
+                    <img src="{% static 'img/img6.jpg' %}" alt="">
+                    <div class="des">
+                    <span>3.Hire Candidate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get upadates about our shop and <span>special offers</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+    </main>
+    <footer class="section-p1">
+        <div class="footer-flex">
+            <div class="col">
+                <h4>contact</h4>
+                <p><strong>Address: </strong>155/A Kolkata,India</p>
+                <p><strong>Phone: </strong>7980583228/8272932248</p>
+                <p><strong>Hours: </strong>10:00 - 18:00, Mon - Sat</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Job Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & conditions</a>
+                <a href="#">Contact us</a>
+            </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Application</a>
+                <a href="#">My Progress</a>
+                <a href="#">Application Status</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store Or Google Pay</p>
+                <div class="row">
+                    <img src="{% static 'img/a1.jpg' %}" alt="">
+                    <img src="{% static 'img/a3.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>copyright &copy; JobFinder.com</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Setup and start animation! -->
+    <!-- <script>
+        var typed = new Typed('#element', {
+            strings: ['Design','Analyst', 'IT', 'Sales','Development'],
+            typeSpeed: 50,
+        });
+    </script> -->
+</body>
+</html>
